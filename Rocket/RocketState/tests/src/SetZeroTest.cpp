@@ -1,5 +1,6 @@
 #include "RocketState/RocketState.hpp"
 
+
 int main() {
     RocketState& rocketState = RocketState::getInstance();
 

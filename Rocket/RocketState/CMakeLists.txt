@@ -1,8 +1,8 @@
-set(RocketStateSources 
+add_library(RocketState
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RocketState/RocketState.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RocketState/RocketState.cpp
 )
-
+target_include_directories(RocketState PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 function(create_RocketState_test)
     set(options WILL_FAIL)
     set(args NAME SOURCE PASS_REGEX)
@@ -20,7 +20,8 @@ function(create_RocketState_test)
     endforeach()
 
     add_executable(${test_NAME} ${test_SOURCE} ${RocketStateSources})
-    target_include_directories(${test_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+    target_link_libraries(${test_NAME} PRIVATE RocketState)
+    #target_include_directories(${test_NAME} PRIVATE ${RocketStateDirectory})
 
     add_test(${test_NAME} ${test_NAME})
 
