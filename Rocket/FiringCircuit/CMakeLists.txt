@@ -2,10 +2,11 @@ add_library(FiringCircuit
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FiringCircuit/FiringCircuit.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FiringCircuit/FiringCircuit.cpp
 )
+add_dependencies(FiringCircuit MissionLogger MissionTimer Timer)
+target_link_libraries(FiringCircuit PRIVATE MissionLogger MissionTimer Timer)
 
 target_include_directories(FiringCircuit PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-target_link_libraries(FiringCircuit PRIVATE MissionLogger)
 
 function(create_firing_circuit_test)
     set(options)

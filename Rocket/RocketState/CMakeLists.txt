@@ -1,4 +1,4 @@
-add_library(RocketState
+add_library(RocketState SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RocketState/RocketState.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RocketState/RocketState.cpp
 )
