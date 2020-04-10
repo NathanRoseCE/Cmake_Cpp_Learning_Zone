@@ -12,7 +12,7 @@ void FiringCircuit::fire() {
     if(m_fired == true) {
         return;
     }
-    MissionLogger::getInstance().logEvent("Channel fired");
+    MissionLogger::logEvent("Channel fired");
     m_fired = true;
 }
 int FiringCircuit::getChannel() {

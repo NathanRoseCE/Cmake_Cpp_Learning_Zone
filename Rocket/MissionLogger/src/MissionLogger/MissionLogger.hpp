@@ -9,14 +9,26 @@ class MissionLogger {
             STATUS=2
         };
 
-        static MissionLogger getInstance();
-        void setLogLevel(LogLevel logLevel);
-        void logStatus(std::string message);
-        void logEvent(std::string message);
-        void logIssue(std::string message);
+        
+        
+        static std::string logStatus(std::string message);
+        static std::string logEvent(std::string message);
+        static std::string logIssue(std::string message);
+        static void setLogLevel(LogLevel logLevel);
+        static LogLevel getLogLevel();
 
+        
     private:
-        static MissionLogger missionLogger;
         LogLevel m_logLevel;
+        static MissionLogger& getInstance();
+        MissionLogger(const MissionLogger&) = delete;
+        MissionLogger& operator=(MissionLogger const& missionLogger);
+        MissionLogger();
+        std::string logStatus_I(std::string message);
+        std::string logEvent_I(std::string message);
+        std::string logIssue_I(std::string message);
+        void setLogLevel_I(LogLevel logLevel);
+        LogLevel getLogLevel_I();
+
 
 };

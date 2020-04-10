@@ -1,7 +1,6 @@
 #include "RocketState/RocketState.hpp"
 #include <cmath>
 
-#define TESTING
 
 int main() {
     ThreeDimensionFloat v1 = {3.4, 4.5, 9.8};

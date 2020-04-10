@@ -7,4 +7,5 @@ class Timer {
         float readTime();
     private:
         clock_t m_startTime;
+        bool m_started = false;
 };

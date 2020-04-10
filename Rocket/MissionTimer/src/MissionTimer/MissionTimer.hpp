@@ -2,11 +2,14 @@
 #include "Timer/Timer.hpp"
 
 class MissionTimer {
-    private:
-        static MissionTimer missionTimer;
-        Timer m_timer;
     public:
-        static MissionTimer getInstance();
-        void startTimer();
-        float getMissionTime();
+        static void startMissionTimer();
+        static float getMissionTime();
+    private:
+        Timer m_timer;
+        MissionTimer();
+        MissionTimer(const MissionTimer&) = delete;
+        static MissionTimer& getInstance();
+        void startMissionTimer_I();
+        float getMissionTime_I();
 };
