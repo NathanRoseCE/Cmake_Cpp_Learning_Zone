@@ -68,3 +68,7 @@ create_mission_logger_test(
     NAME "Mission_Logger_Event_Test"
     SOURCE "tests/src/logEventTest.cpp"
 )
+create_mission_logger_test(
+    NAME "Mission_Logger_No_Time_Test"
+    SOURCE "tests/src/hideTimeTest.cpp"
+)

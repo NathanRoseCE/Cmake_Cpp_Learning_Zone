@@ -1,8 +1,10 @@
-add_library(RocketState SHARED
+add_library(RocketState
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RocketState/RocketState.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/RocketState/RocketState.cpp
 )
+
 target_include_directories(RocketState PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 function(create_RocketState_test)
     set(options WILL_FAIL)
     set(args NAME SOURCE PASS_REGEX)
@@ -67,4 +69,8 @@ create_RocketState_test(
 create_RocketState_test(
     NAME "singleton_test"
     SOURCE "tests/src/SingletonTest.cpp"
+)
+create_RocketState_test(
+    NAME "armed_test"
+    SOURCE "tests/src/armedTest.cpp"
 )

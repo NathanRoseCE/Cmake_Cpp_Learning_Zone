@@ -1,6 +1,8 @@
 #pragma once
-#include "RocketState/RocketState.hpp"
 
+#include "RocketState/RocketState.hpp"
+#include "FiringCircuit/FiringCircuit.hpp"
+#include "Timer/Timer.hpp"
 
 class StateMachine {
     public:
@@ -21,10 +23,14 @@ class StateMachine {
         RocketState m_rocketState;
         States m_currentState;
         States m_previousState;
+        Timer m_stageTimer;
+        FiringCircuit m_firingCircuit[3];
     public:
         States getCurrentState();
         States getPreviousState();
     private:
+        StateMachine();
+        ~StateMachine();
         void runSafe();
         void runArmed();
         void runFirstStagePowered();
@@ -45,6 +51,6 @@ class StateMachine {
         void switchToDrogueDescent();
         void switchToMainDescent();
         void switchToLanded();
-        void ABORT();
+        void switchToAbort();
 
 };
